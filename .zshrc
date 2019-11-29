@@ -11,6 +11,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+# keybind like vim
+bindkey -v
 
 # zshプロンプトにモード表示####################################
 # function zle-line-init zle-keymap-select {
