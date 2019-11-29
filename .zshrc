@@ -47,8 +47,8 @@ function history-all { history -E 1 }
 export TMUX_TMPDIR=/tmp
 
 # 初回シェル時のみ tmux実行
-if [ $SHLVL = 1 ]; then
-  tmux a -t name
-fi
+# if [ $SHLVL = 1 ]; then
+#   tmux a -t name
+# fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
