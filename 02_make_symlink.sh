@@ -9,3 +9,5 @@ ln -sf ~/Git/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
 # zsh
 ln -sf ~/Git/dotfiles/zsh/.zshrc ~/.zshrc
+ln -sf ~/Git/dotfiles/zsh/.zpreztorc ~/.zpreztorc
+
