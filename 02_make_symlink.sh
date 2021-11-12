@@ -8,6 +8,8 @@ ln -sf ~/Git/dotfiles/vim/rc/dein_lazy.toml ~/.vim/rc/dein_lazy.toml
 ln -sf ~/Git/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
 # zsh
+cp ~/.zpreztorc ~/dotfiles/zsh/
+
 ln -sf ~/Git/dotfiles/zsh/.zshrc ~/.zshrc
 ln -sf ~/Git/dotfiles/zsh/.zpreztorc ~/.zpreztorc
 
