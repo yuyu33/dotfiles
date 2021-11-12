@@ -3,13 +3,18 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'tomasr/molokai'
 
-# [[plugins]]
-# repo = 'scrooloose/syntastic'
+[[plugins]]
+repo = 'scrooloose/syntastic'
 
 
 [[plugins]]
