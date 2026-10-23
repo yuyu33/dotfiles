@@ -35,6 +35,7 @@ for d in "$DOT"/config/*/; do link "${d%/}" "$HOME/.config/$(basename "$d")"; do
 link "$DOT/bin/dot" "$HOME/.local/bin/dot"
 mkdir -p "$HOME/.ssh" && chmod 700 "$HOME/.ssh"
 link "$DOT/ssh/config" "$HOME/.ssh/config"
+link "$DOT/ssh/github-yuyu33.pub" "$HOME/.ssh/github-yuyu33.pub"
 # 1Password SSH agent socket (path without spaces)
 OPSOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 mkdir -p "$HOME/.1password" && ln -sfn "$OPSOCK" "$HOME/.1password/agent.sock"

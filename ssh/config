@@ -5,6 +5,10 @@ Include ~/.ssh/config.local
 Match exec "test -S ~/.1password/agent.sock"
   IdentityAgent ~/.1password/agent.sock
 
+Host github.com
+  IdentityFile ~/.ssh/github-yuyu33.pub
+  IdentitiesOnly yes
+
 Host *
   AddKeysToAgent yes
   ServerAliveInterval 60
