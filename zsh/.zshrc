@@ -40,7 +40,7 @@ bindkey '^[OB' down-line-or-beginning-search
 
 # ---- aliases ----
 if (( $+commands[eza] )); then
-  alias ls='eza --icons' ll='eza -la --icons --git' lt='eza -T --icons -L 2'
+  alias ls='eza --icons=auto' ll='eza -la --icons=auto --git' lt='eza -T --icons=auto -L 2'
 fi
 (( $+commands[bat] )) && alias cat='bat -pp'
 alias g='git' gs='git status' gd='git diff' gl='git log --oneline --graph -20'
