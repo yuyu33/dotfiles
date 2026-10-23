@@ -1,0 +1,26 @@
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[fetch]
+	prune = true
+[alias]
+	st = status -sb
+	lg = log --oneline --graph --decorate -20
+# HTTPS auth via gh (follows ghsw / ghas)
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
+# author for ~/dotfiles
+[includeIf "gitdir:~/dotfiles/"]
+	path = ~/.config/git/config-yuyu33
+# machine local (not tracked)
+[include]
+	path = ~/.config/git/config.local
