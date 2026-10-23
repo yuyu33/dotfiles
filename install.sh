@@ -32,11 +32,23 @@ link() {
 link "$DOT/zsh/.zshenv" "$HOME/.zshenv"
 for f in .zprofile .zshrc .p10k.zsh gh-account.zsh; do link "$DOT/zsh/$f" "$HOME/.config/zsh/$f"; done
 for d in "$DOT"/config/*/; do link "${d%/}" "$HOME/.config/$(basename "$d")"; done
+link "$DOT/bin/dot" "$HOME/.local/bin/dot"
+mkdir -p "$HOME/.ssh" && chmod 700 "$HOME/.ssh"
+link "$DOT/ssh/config" "$HOME/.ssh/config"
+# 1Password SSH agent socket (path without spaces)
+OPSOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+mkdir -p "$HOME/.1password" && ln -sfn "$OPSOCK" "$HOME/.1password/agent.sock"
 
 # 6. local overrides (untracked)
-touch "$HOME/.config/zsh/.zshrc.local" "$HOME/.config/git/config.local"
+touch "$HOME/.config/zsh/.zshrc.local" "$HOME/.config/git/config.local" "$HOME/.ssh/config.local"
 
 # 7. zsh plugins
 sheldon lock --update
+
+# 8. runtimes (mise)
+mise install
+
+# 9. macOS defaults (skip with SKIP_MACOS=1)
+[[ ${SKIP_MACOS:-0} == 1 ]] || "$DOT/macos.sh"
 
 echo "Done. Restart your terminal."

@@ -1,0 +1,8 @@
+[tools]
+python = "3.13"
+terraform = "1.15"
+node = "lts"
+
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = ["python", "node", "terraform"]

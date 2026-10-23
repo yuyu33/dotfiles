@@ -8,6 +8,21 @@
 	autoSetupRemote = true
 [fetch]
 	prune = true
+[rerere]
+	enabled = true
+[diff]
+	colorMoved = default
+[commit]
+	verbose = true
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+[merge]
+	conflictstyle = zdiff3
 [alias]
 	st = status -sb
 	lg = log --oneline --graph --decorate -20

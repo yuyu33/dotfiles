@@ -2,6 +2,8 @@
 brew "git"
 brew "gh"
 brew "sheldon"
+brew "mise"
+brew "direnv"
 # modern cli
 brew "fzf"
 brew "zoxide"
@@ -9,10 +11,9 @@ brew "eza"
 brew "bat"
 brew "ripgrep"
 brew "fd"
-# languages / tools
-brew "pyenv"
-brew "tfenv"
-brew "node"
+brew "git-delta"
+brew "shellcheck"
+# tools
 brew "uv"
 brew "poppler"
 # apps

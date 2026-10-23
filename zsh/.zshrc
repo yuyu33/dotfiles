@@ -9,12 +9,32 @@ HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/history"
 HISTSIZE=100000; SAVEHIST=100000
 setopt share_history hist_ignore_all_dups hist_reduce_blanks extended_history
 setopt auto_cd auto_pushd pushd_ignore_dups interactive_comments
+setopt hist_ignore_space no_beep
+
+# ---- completion ----
+zmodload zsh/complist
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*' group-name ''
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+# ---- history search (prefix match with up/down) ----
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[OA' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey '^[OB' down-line-or-beginning-search
 
 # ---- plugins (sheldon) ----
 (( $+commands[sheldon] )) && eval "$(sheldon source)"
 
 # ---- tools ----
-(( $+commands[pyenv]  )) && eval "$(pyenv init - zsh)"
+(( $+commands[mise]   )) && eval "$(mise activate zsh)"
+(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 (( $+commands[fzf]    )) && source <(fzf --zsh)
 

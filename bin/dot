@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# dotfiles helper
+#   dot update   pull + brew bundle + mise install + sheldon update
+#   dot dump     show packages installed but not in Brewfile
+#   dot edit     open dotfiles in $EDITOR
+set -euo pipefail
+DOT="${DOTFILES:-$HOME/dotfiles}"
+case "${1:-}" in
+  update)
+    git -C "$DOT" pull --ff-only
+    brew bundle --file="$DOT/Brewfile"
+    mise install
+    sheldon lock --update
+    ;;
+  dump)
+    brew bundle cleanup --file="$DOT/Brewfile" || true
+    ;;
+  edit)
+    exec "${EDITOR:-vim}" "$DOT"
+    ;;
+  *)
+    sed -n '2,5p' "$0" | sed 's/^# \{0,1\}//'
+    ;;
+esac

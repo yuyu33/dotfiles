@@ -1,0 +1,10 @@
+# machine-specific hosts (not tracked)
+Include ~/.ssh/config.local
+
+# use 1Password SSH agent only when it is running
+Match exec "test -S ~/.1password/agent.sock"
+  IdentityAgent ~/.1password/agent.sock
+
+Host *
+  AddKeysToAgent yes
+  ServerAliveInterval 60
